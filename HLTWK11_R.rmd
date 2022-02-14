@@ -1,0 +1,191 @@
+---
+title: "TASK"
+output: html_notebook
+---
+
+# load the package
+```{r}
+library(AICcmodavg) 
+```
+
+#load the beetle dataset 
+```{r}
+data("beetle")  
+```
+
+#display the bettle dataset
+```{r}
+beetle
+```
+```{r}
+library(ggplot2)
+```
+
+#Plot a line graph for the variables Number_tested vs Number_killed against Dose.
+```{r}
+In <- ggplot(data = beetle,
+             aes(x = Mortality_rate,
+                 y = Dose,
+                 ))+
+  geom_line()
+In
+```
+
+#Write an R program to create three vectors a, b, c with 5 integers. Combine the three vectors to become a 3×5 matrix where each column represents a vector. Print the content of the matrix. Plot a graph and label correctly.
+```{r}
+a = c(0.5, 10,0.3,12.4,9.5)
+b = c(2.0,1.0,4.0,4.9,5.0)
+c = c(3.0,3,0.5,6.0,0.9)
+#combine the vectors and create a dataframe.
+z_bind <-as.data.frame(cbind(a,b,c))
+```
+
+```{r}
+z_bind
+```
+
+
+```{r}
+mean(a)
+
+```
+
+
+```{r}
+
+plot(a,b, type = "l")
+hist(a,probability = T, add = T)
+```
+
+#
+```{r}
+p<-ggplot()+
+  layer(data = z_bind,
+        stat = "identity",
+        geom = "line",
+        mapping = aes(x = a, y = b, colour = c),
+        position = "identity")
+plot(p)
+```
+#Write a R program to create a Data frames which contain details of 5 employees and display the details.  (Name, Age, Role and Length of service)
+```{r}
+Name = c("Jo", "James","Ahmed","Buhari","Abbas")
+Age = c(23,39,40,21,26)
+Role = c("Manager","HR","technician","pilot","bursar")
+L_S =c(12,32,20,10,5)
+
+Details_employees =as.data.frame(cbind(Name,Age,Role,L_S))
+
+```
+
+```{r}
+Details_employees
+```
+#Import the GGPLOT 2 library and plot a graph using the qplotfunction.  X axis is the sequence of 1:20 and the y axis is the x ^ 2.  Label the graph appropriately. install.packages("ggplot2", dependencies = TRUE
+```{r}
+library(ggplot2)
+```
+
+```{r}
+x = seq(1:20)
+y = x ^ 2
+
+c = as.data.frame(cbind(x,y))
+```
+
+```{r}
+qplot(x,y, data = c,
+      geom = "line")
+```
+
+```{r}
+f = function(){
+  a = seq(1:20)
+  b = a ^ 2
+  qplot(a,b)
+}
+f()
+```
+# Create a simple bar plot of five subjects
+```{r}
+scores = c(20,30,40,80,100)
+barplot(scores,
+        ylab = "Scores",
+        xlab = "Subjects",
+        names.arg = c("MAths", "Eng.","Chem.","Phy.","Bio."),
+        col = "Blue")
+```
+
+#Write a R program to take input from the user (name and age) and display the values. 
+```{r}
+name = readline("What is your name:")
+age = readline("how old are you:")
+print(paste("Hey" ,name,"are you", age, "?"))
+```
+
+
+```{r}
+
+```
+
+
+#Write a R program to create a sequence of numbers from 20 to 50 and find the mean of numbers from 20 to 50 and sum of numbers.
+```{r}
+d = seq(20:50)
+mean(d)
+sum(d)
+```
+#Write a R program to create a vector which contains 10 random integer values between -50 and +50
+```{r}
+random_integer <- cbind(runif(10,  -50, 50))#runif()refers to random uniform.
+random_integer
+```
+#Write a R program to get the first 10 Fibonacci numbers.
+```{r}
+nterm <- as.integer(readline(prompt = "Number of terms:"))
+n1 = 0
+n2 = 1
+count = 2
+if (nterm <= 0){
+  print("Choose a positive number")
+} else{
+if (nterm == 1){
+print("Fibonacci sequence:")
+print(n1)
+} else {
+print("fibonacci sequence:")
+print(n1)
+print(n2)
+while (count < nterm){
+nth = n1 + n2
+print(nth)
+n1 = n2
+n2 = nth
+count = count + 1
+}
+        
+} 
+}
+```
+#Write a R program to print the numbers from 1 to 100 and print "Fizz" for multiples of 3, print "Buzz" for multiples of 5, and print "FizzBuzz" for multiples of both.
+
+```{r}
+for (i in 1:100){
+  if (i %% 3 == 0 & i %% 5 == 0)
+    print("FizzBuzz")
+
+  } else if (i %% 3 == 0) {
+  print("Fizz")
+
+  } else if (i %% 5 == 0) {
+  print("Buzz")
+  } else {
+  print(i)
+}
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
